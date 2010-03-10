@@ -2,12 +2,12 @@
 
 define('PROJECT_PATH', dirname(__DIR__));
 
-require 'Uber.php';
-Uber::init();
-
 //  sgl libs
 $root = dirname(dirname(__DIR__));
 $sglLibDir = $root .'/sgl2/src/lib';
+
+require $sglLibDir.'/Uber.php';
+Uber::init();
 Uber_Loader::registerNamespace('SGL2', $sglLibDir);
 Uber_Loader::registerNamespace('Zend', $sglLibDir);
 
