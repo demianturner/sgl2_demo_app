@@ -1,9 +1,9 @@
 <?php
 
-define('PROJECT_PATH', dirname(__DIR__));
+define('PROJECT_PATH', dirname(dirname(__FILE__)));
 
 //  sgl libs
-$root = dirname(dirname(__DIR__));
+$root = dirname(dirname(dirname(__FILE__)));
 $sglLibDir = $root .'/sgl2/src/lib';
 
 require $sglLibDir.'/Uber.php';
