@@ -3,13 +3,13 @@
 class Default_Command_Default extends SGL2_Command_Abstract
 {
 	protected
-	  $ctx	     	= null,
+	  $registry	   	= null,
 	  $dispatcher   = null;	
 	
-	public function __construct(SGL2_Context $ctx)
+	public function __construct(SGL2_Registry $registry)
 	{
-		$this->ctx = $ctx;
-		$this->dispatcher = $ctx->getEventDispatcher();
+		$this->registry = $registry;
+		$this->dispatcher = $registry->getEventDispatcher();
 	}
 	
 	public function validate(SGL2_Request $request)
