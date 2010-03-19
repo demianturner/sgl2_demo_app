@@ -9,8 +9,10 @@ $sglLibDir = $root .'/sgl2/src/lib';
 require $sglLibDir.'/Uber.php';
 Uber::init();
 Uber_Loader::registerNamespace('SGL2', $sglLibDir);
+Uber_Loader::registerNamespace('HTML', $sglLibDir);
 Uber_Loader::registerNamespace('Zend', $sglLibDir);
 Uber_Loader::registerNamespace('Horde', $sglLibDir);
+
 
 try {
     $front = new SGL2_Controller_Front();
