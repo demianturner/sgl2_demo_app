@@ -18,8 +18,7 @@ Uber_Loader::registerNamespace('SGL2', $sglLibDir);
 Uber_Loader::registerNamespace('Zend', $sglLibDir);
 Uber_Loader::registerNamespace('Horde', $sglLibDir);
 
-//set_include_path(get_include_path() . PATH_SEPARATOR . '..' .PATH_SEPARATOR . $sglLibDir);
-
+$output = '';
 try {
     $front = new SGL2_Controller_Front();
     $output = $front->bootstrap()->dispatch();
