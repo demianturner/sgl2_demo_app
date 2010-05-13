@@ -2,10 +2,13 @@
 
 define('PROJECT_PATH', dirname(dirname(__FILE__)));
 
-//  sgl libs
-$root = dirname(dirname(dirname(__FILE__)));
+//  setup paths
+$root = dirname(PROJECT_PATH);
 $sglLibDir = $root .'/sgl2/src/lib';
 
+set_include_path(get_include_path() . PATH_SEPARATOR . $sglLibDir);
+
+//	setup autoloader
 require $sglLibDir.'/Uber.php';
 Uber::init();
 Uber_Loader::addAutoloadPattern(array(
