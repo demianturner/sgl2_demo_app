@@ -6,20 +6,16 @@ define('PROJECT_PATH', dirname(dirname(__FILE__)));
 $root = dirname(PROJECT_PATH);
 $sglLibDir = $root .'/sgl2/src/lib';
 
+// set include_path
 set_include_path(get_include_path() . PATH_SEPARATOR . $sglLibDir);
 
-//	setup autoloader
-require $sglLibDir.'/Uber.php';
-Uber::init();
-Uber_Loader::addAutoloadPattern(array(
-    'preg_replace'=> array(
-        '_'=>'/'),
-        'suffix'=>'.php',
-        'basedir'=>get_include_path()));
-Uber_Loader::registerNamespace('Uber', $sglLibDir);
-Uber_Loader::registerNamespace('SGL2', $sglLibDir);
-Uber_Loader::registerNamespace('Zend', $sglLibDir);
-Uber_Loader::registerNamespace('Horde', $sglLibDir);
+function autoload($className)
+{
+    $fileName = str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+    require $fileName;
+}
+
+spl_autoload_register('autoload');
 
 $output = '';
 try {
